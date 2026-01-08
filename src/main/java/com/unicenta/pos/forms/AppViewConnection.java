@@ -69,7 +69,7 @@ public class AppViewConnection {
             }
             if("true".equals(props.getProperty("db.multi"))) {
                 if (!Files.exists(Paths.get(filePath))) {
-                    ImageIcon icon = new ImageIcon("/com/unicenta/images/unicentaopos.png");
+                    ImageIcon icon = new ImageIcon("/com/unicenta/images/logo1.png");
                     Object[] dbs = {
                     "0 - " + props.getProperty("db.name"),
                     "1 - " + props.getProperty("db1.name")};
