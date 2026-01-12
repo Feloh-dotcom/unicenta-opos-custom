@@ -28,7 +28,7 @@ import com.unicenta.beans.LocaleResources;
 public class AppLocal {
 
 
-    public static final String APP_NAME = "NELLO POS";
+    public static final String APP_NAME = "Smarteq POS";
     public static final String APP_ID = "unicentaopos";
     public static final String APP_VERSION = "5.0";
 

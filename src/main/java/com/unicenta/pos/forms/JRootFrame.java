@@ -90,6 +90,8 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
             }
 
             setTitle(AppLocal.APP_NAME + " - " + AppLocal.APP_VERSION);
+            //setTitle("Smarteq POS - Smart & Reliable Point of Sale");
+
             pack();
             setLocationRelativeTo(null);
 

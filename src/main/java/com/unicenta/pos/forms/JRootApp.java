@@ -527,11 +527,18 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
     String newText = m_props.getProperty("start.text");
     if (newText != null) {
       if (newText.equals("")) {
-        jLabel1.setText("<html><center>SmartPOS Pro - Hybrid Online/Offline POS<br>" +
-                "Copyright © 2026 Nello Technologies <br>" +
-                "call :+254110426874<br>" +
-                "<br>" +
-                "</center>");
+        jLabel1.setText(
+    "<html><div style='width:700px; text-align:center;'>"
+  + "Smarteq POS – Smart & Reliable Point of Sale<br><br>"
+  + "Copyright © Smarteq<br><br>"
+  + "Smarteq POS is a commercial point of sale solution designed and maintained by Smarteq.<br>"
+  + "All rights reserved.<br><br>"
+  + "Support Contacts:<br>"
+  + "Phone: +254 110 426 874 / +254 799 311 311 413 / +254 757 715 147<br>"
+  + "Email: oundofelix04@gmail.com"
+  + "</div></html>"
+);
+
 
       } else {
         try {
@@ -974,7 +981,7 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
     m_jPanelLogin = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 0));
+    filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0));
     jPanel5 = new javax.swing.JPanel();
     m_jLogonName = new javax.swing.JPanel();
     jPanel2 = new javax.swing.JPanel();
@@ -1027,14 +1034,18 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
     jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unicenta/images/unicenta.png"))); // NOI18N
-    jLabel1.setText("<html><center>NELLO - Hybrid Online/Offline POS<br>" +
-            "Copyright © 2026 Nello Technologies <br>" +
-            "call :+254110426874<br>" +
-            "<br>" +
-            
-             
-        
-            "</center>");
+    jLabel1.setText(
+    "<html><div style='width:700px; text-align:center;'>"
+  + "Smarteq POS – Smart & Reliable Point of Sale<br><br>"
+  + "Copyright © Smarteq<br><br>"
+  + "Smarteq POS is a commercial point of sale solution designed and maintained by Smarteq.<br>"
+  + "All rights reserved.<br><br>"
+  + "Support Contacts:<br>"
+  + "Phone: +254 110 426 874 / +254 799 311 311 413 / +254 757 715 147<br>"
+  + "Email: oundofelix04@gmail.com"
+  + "</div></html>"
+);
+
     jLabel1.setAlignmentX(0.5F);
     jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jLabel1.setMaximumSize(new java.awt.Dimension(800, 1024));
@@ -1042,13 +1053,17 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
     jPanel4.add(jLabel1);
     jPanel4.add(filler2);
 
-    m_jPanelLogin.add(jPanel4, java.awt.BorderLayout.CENTER);
+    // m_jPanelLogin.add(jPanel4, java.awt.BorderLayout.CENTER);
+    // ADD this instead
+    JPanel splashWrapper = new JPanel(new BorderLayout());
+    splashWrapper.add(jPanel4, BorderLayout.NORTH);
+    m_jPanelLogin.add(splashWrapper, BorderLayout.CENTER);
 
     jPanel5.setPreferredSize(new java.awt.Dimension(300, 400));
 
     m_jLogonName.setLayout(new java.awt.BorderLayout());
 
-    jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 5));
+    jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 0, 0, 0));
     jPanel2.setPreferredSize(new java.awt.Dimension(100, 100));
     jPanel2.setLayout(new java.awt.BorderLayout());
 
@@ -1123,7 +1138,7 @@ public class JRootApp extends JPanel implements AppView, DeviceMonitorEventListe
                             .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jPanel5Layout.createSequentialGroup()
                                             .add(m_jLogonName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                            .add(434, 434, 434))
+                                            .add(50, 50, 50))
                                     .add(jPanel5Layout.createSequentialGroup()
                                             .add(jScrollPane1)
                                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
