@@ -18,7 +18,7 @@
 //    along with uniCenta oPOS.  If not, see <http://www.gnu.org/licenses/>.
 
 package com.unicenta.pos.payment;
-
+import com.unicenta.pos.payment.JPaymentMpesa;
 import com.unicenta.format.Formats;
 import com.unicenta.pos.customers.CustomerInfoExt;
 import com.unicenta.pos.customers.DataLogicCustomers;
@@ -78,6 +78,9 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
     protected JPaymentSelect(java.awt.Frame parent, boolean modal, ComponentOrientation o) {
         super(parent, modal);
         initComponents();
+        setPreferredSize(new Dimension(1000, 600));
+        pack();
+        setLocationRelativeTo(null);
         this.applyComponentOrientation(o);
         getRootPane().setDefaultButton(m_jButtonOK);
 
@@ -90,6 +93,9 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
     protected JPaymentSelect(java.awt.Dialog parent, boolean modal, ComponentOrientation o) {
         super(parent, modal);
         initComponents();
+        setPreferredSize(new Dimension(1000, 600));
+        pack();
+        setLocationRelativeTo(null);
 
         m_jButtonPrint.setVisible(true);
         this.applyComponentOrientation(o);
@@ -297,6 +303,24 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         @Override
         public String getIconKey() {
             return "/com/unicenta/images/ccard.png"; }
+    }
+    public class JPaymentMpesaCreator implements JPaymentCreator {
+        @Override
+        public JPaymentInterface createJPayment() {
+            return new JPaymentMpesa(app);
+        }
+        @Override
+        public String getKey() {
+            return "payment.mpesa";
+        }
+        @Override
+        public String getLabelKey() {
+            return "tab.mpesa";
+        }
+        @Override
+        public String getIconKey() {
+            return "/com/unicenta/images/mpesa.png";
+        }
     }
 
 
@@ -512,7 +536,7 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(AppLocal.getIntString("payment.title")); // NOI18N
-        setPreferredSize(new java.awt.Dimension(750, 127));
+        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
 
         jPanel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -525,7 +549,7 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         m_jTotalEuros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         m_jTotalEuros.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("Button.darkShadow")), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
         m_jTotalEuros.setOpaque(true);
-        m_jTotalEuros.setPreferredSize(new java.awt.Dimension(150, 30));
+        m_jTotalEuros.setPreferredSize(new java.awt.Dimension(220, 45));
         m_jTotalEuros.setRequestFocusEnabled(false);
 
         m_jLblRemainingEuros.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -536,7 +560,7 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         m_jRemaininglEuros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         m_jRemaininglEuros.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("Button.darkShadow")), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
         m_jRemaininglEuros.setOpaque(true);
-        m_jRemaininglEuros.setPreferredSize(new java.awt.Dimension(150, 30));
+        m_jRemaininglEuros.setPreferredSize(new java.awt.Dimension(220, 45));
         m_jRemaininglEuros.setRequestFocusEnabled(false);
 
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));

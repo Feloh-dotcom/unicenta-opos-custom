@@ -21,26 +21,35 @@ package com.unicenta.pos.payment;
 
 import com.unicenta.pos.forms.AppProperties;
 
-
 /**
-     * Creates a new instance of PaymentGatewayFac
+ * Payment gateway factory
  */
 public class PaymentGatewayFac {
-    
-    /** Creates a new instance of PaymentGatewayFac */
+
     private PaymentGatewayFac() {
     }
-    
-    public static PaymentGateway getPaymentGateway(AppProperties props) {    
-        
-        String sReader = props.getProperty("payment.gateway");
-        switch (sReader) {
+
+    public static PaymentGateway getPaymentGateway(AppProperties props) {
+
+        String gateway = props.getProperty("payment.gateway");
+
+        if (gateway == null) {
+            return null;
+        }
+
+        switch (gateway) {
+
             case "external":
                 return new PaymentGatewayExt();
+
             case "PaymentSense":
                 return new PaymentGatewayPaymentSense();
+
+            case "mpesa":
+                return new PaymentGatewayMpesa(props);
+
             default:
                 return null;
         }
-    }      
+    }
 }
